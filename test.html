@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+</head>
+<body>
+	<div id="test" data-id="123">
+	</div>
+</body>
+<script type="text/javascript" src="data.js"></script>
+<script type="text/javascript">
+	var elem = document.getElementById("test");
+	Data.call(elem,"name","gaohao");
+	Data.call(elem,{
+		job : "it",
+		name : "jim"
+	});
+	console.log(Data.call(elem))
+</script>
+</html>

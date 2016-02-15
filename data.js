@@ -5,13 +5,13 @@ function data(){
 };
 
 data.accept = function(elem){
-	if(elem[0].nodeType === 1 || elem[0].nodeType === 9) return true;
+	if(elem.nodeType === 1 || elem.nodeType === 9) return true;
 	return false;
 }
 
 data.prototype = {
 	key : function(elem){
-	
+		//uid最好只能获取，不能修改
 		if(!data.accept(elem)) return 0;
 		if(!elem[this.expando]){
 			this.uid++;
@@ -54,16 +54,17 @@ data.prototype = {
 
 var Gdata_user = new data();
 var _dataUser = new data();
-$.fn.Gdata = function(key,value){
+
+function Data(key,value){
 	var j = this;
 	var data = Gdata_user.get(j);
 	if(!_dataUser.get(j,"hasAttrData")){
-		var items = j[0].attributes;
+		var items = j.attributes;
 		for(var i = 0; i < items.length; i++){
 			var name = items[i].name;
 			if(name.indexOf("data-") === 0){
 				name = name.slice(5)
-				getAttrDatas(j[0],name,data)
+				getAttrDatas(j,name,data)
 			}
 		};
 		_dataUser.set(j,"hasAttrData","true");
