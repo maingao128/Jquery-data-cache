@@ -25,7 +25,7 @@ this.cashe[uid] = data;
 ####关于data缓存用的地方很多，有一个比较巧妙的用法就是再写jquery插件使用，可以防止重复定义插件，也可以直接调用插件内部的某个方法
 
 ```
-#应用自刚写的弹窗Model插件
+#引用自写的弹窗Model插件
 function plugins(option){
 
 #在这儿还可以对option做一些处理
